@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Translate app</title>
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<style>
+
+p {font-size: 20px}	
+h1{text-align: center;}
+
+</style>
+
+<body>
+
+
+<div class="container">
+	
+	<h1 class="mt-5 mb-5">Translate App</h1>
+
+
+<form method="POST" action="{% url 'trans' %}">
+	{% csrf_token %}
+  <div class="form-row mt-4">
+	<div class="col">
+      <textarea type="text" name="txt" class="form-control" placeholder="Enter Your Text" rows="5" required="required"></textarea>
+    </div>
+
+    <div class="col">
+     <select id="inputState" class="form-control" name="lang">
+      <option selected value="en">English</option>
+      <option value="ar">Arabic</option>
+      <option value="es">Spanish</option>
+      <option value="fr">Frensh</option>
+      <option value="de">German</option>
+      <option value="zh-cn">Chinese</option>
+    </select>
+    </div>
+    
+  </div>
+
+      <button type="submit" class="btn btn-primary mt-2">Translate</button>
+
+</form>
+
+
+
+<p class="mt-4">{{result}}</p>
+
+
+</div>
+
+
+</body>
+</html>
